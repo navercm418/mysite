@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		{{ zvExtHead|safe }}
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Boston Tagalog Group</title>
+		<link rel="shortcut icon" type="image/png" href="{{ zvFavicon }}">
+		
+		<style>
+			{{ zvCss }}
+		</style>
+
+	<div id="mySidenav" class="sidenav">
+		<a href= "javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href= "{{ zvRootUrl }}">Home</a>
+		<a href= "{{ zvRootUrl }}territory/">Territory</a>
+		<a href= "{{ zvRootUrl }}tools/">Tools</a>
+		<a href= "{{ zvRootUrl }}reports/">Reports</a>
+	</div>
+
+	<script>
+		function openNav() {
+		  document.getElementById("mySidenav").style.width = "250px";
+		}
+
+		function closeNav() {
+		  document.getElementById("mySidenav").style.width = "0";
+	}
+	</script>
+
+	<div id="navbar">
+	  <p style="color: {{ zvBgc }};background-color: {{ zvFgc }}; margin-left: 5px;" onclick="openNav()">&#9776 {{ zvCurPage }}</p>
+		{% for Item in zvItemList %}
+			{{ Item|safe }}
+		{% endfor %}
+	</div>
+
+	</head>
+	<body>
+	<div class="content">
+		<h3>{{ zvHeader|safe }}</h3>
+
+	{{ zvBody|safe }}
+	{{ zvForm1|safe }}
+	{% csrf_token %}
+	{{ zvForm2|safe }}
+	{{ zvForm3|safe }}
+	{% csrf_token %}
+
+	</div>
+
+		<script>
+			window.onscroll = function() {myFunction()};
+			var navbar = document.getElementById("navbar");
+			var sticky = navbar.offsetTop;
+			function myFunction() {
+			  if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky")
+			  } else {
+				navbar.classList.remove("sticky")
+			  }
+			}
+		</script>
+
+	{{ zvExtBody|safe }}
+
+	{{ zvSubBody|safe }}
+
+	</body>
+	{{ zvExtScript|safe }}
+</html>

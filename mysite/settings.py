@@ -25,12 +25,18 @@ SECRET_KEY = 'django-insecure-nf)--zl_)y=clhkztxy0w03xph0ksmpfx(wp(7%%fdrniiepw3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['navercm.pythonanywhere.com']
+ALLOWED_HOSTS = ['navercm.pythonanywhere.com',
+                 'localhost',
+                 '0.0.0.0',
+                 'eosgit',
+                 '10.100.38.137'
+                ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'organizer.apps.OrganizerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
